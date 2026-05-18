@@ -2,9 +2,62 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
+    "params": [
+        {
+            "name": "Month_selection",
+            "value": 1,
+            "bind": {
+                "input": "range",
+                "min": 1,
+                "max": 11,
+                "step": 2,
+                "name": "Months since 07/2024: "
+            }
+        },
+        {
+            "name": "center_to",
+            "value": [145.61179309112524, -37.734353622972534],
+            "bind": {
+                "input": "select",
+                "options": [
+                    [144.86753586833913, -37.68872333921223],
+                    [145.61179309112524, -37.734353622972534],
+                    [145.32675795007142, -38.13895113188063],
+                    [142.55922390615373, -37.99649741464766],
+                    [147.42150728514048, -37.73076755693322],
+                    [142.4689068465985, -36.76813503698848],
+                    [146.2517647411612, -36.67762937189956],
+                    [142.98077637818807, -35.663330482715814]
+                ],
+                "labels": [
+                    "North and West Metropolitan Area",
+                    "East Metropolitan Area",
+                    "Southern Metropolitan Area",
+                    "Barwon South West Region",
+                    "Gippsland Region",
+                    "Grampians Region",
+                    "Hume Region",
+                    "Loddon Mallee Region"
+                ]
+            }
+        },
+        {
+            "name": "zoom_level",
+            "value": 3000,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 10000,
+                "step": 100,
+                "name": "Zoom level: "
+            }
+        }
+    ],
     "title": "Named Victorian Water Bodies",
     "projection": {
-        "type": "mercator"
+        "type": "mercator",
+        "center": {"expr": "center_to"},
+        "scale": {"expr": "zoom_level"}
     },
     "layer":[
         {
