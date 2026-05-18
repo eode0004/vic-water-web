@@ -4,17 +4,6 @@
     "height": 600,
     "params": [
         {
-            "name": "Month_selection",
-            "value": 1,
-            "bind": {
-                "input": "range",
-                "min": 1,
-                "max": 11,
-                "step": 2,
-                "name": "Months since 07/2024: "
-            }
-        },
-        {
             "name": "center_to",
             "value": [145.61179309112524, -37.734353622972534],
             "bind": {
@@ -38,7 +27,8 @@
                     "Grampians Region",
                     "Hume Region",
                     "Loddon Mallee Region"
-                ]
+                ],
+                "name": "Center view in: "
             }
         },
         {
