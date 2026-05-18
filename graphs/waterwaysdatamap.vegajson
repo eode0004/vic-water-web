@@ -37,7 +37,7 @@
         {
             "data": {
                 "name": "vic_base",
-                "url": "https://www.dropbox.com/scl/fi/pvcxo882rjz38qi8zrf05/VICGOV_REGION.json?rlkey=0s3yqxbjuxcv187gp2z820yt7&st=g711yn0t&dl=0",
+                "url": "graphs/data/VICGOV_REGION.topojson",
                 "format": {"type": "topojson", "feature": "VICGOV_REGION"}
             },
             "mark": {
