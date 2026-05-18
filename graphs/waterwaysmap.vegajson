@@ -10,7 +10,7 @@
         {
             "data": {
                 "name": "vic_base",
-                "url": "graphs/data/VICGOV_REGION.json",
+                "url": "https://raw.githubusercontent.com/eode0004/vic-water-web/refs/heads/main/graphs/data/VICGOV_REGION.json",
                 "format": {"type": "topojson", "feature": "VICGOV_REGION"}
             },
             "mark": {
@@ -22,7 +22,7 @@
         {
             "data": {
                 "name": "waterways_geo",
-                "url": "graphs/data/HY_WATER_AREA_POLYGON_clip.json",
+                "url": "https://raw.githubusercontent.com/eode0004/vic-water-web/refs/heads/main/graphs/data/HY_WATER_AREA_POLYGON_clip.json",
                 "format": {"type": "topojson", "feature": "water_clipped"}
             },
             "transform": [
