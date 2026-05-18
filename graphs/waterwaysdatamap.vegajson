@@ -15,12 +15,21 @@
             }
         },
         {
-            "name": ""
+            "name": "zoom_level",
+            "value": 1000,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 10000,
+                "step": 100,
+                "name": "Zoom level: "
+            }
         }
     ],
     "title": "Water Data from Selected Sites",
     "projection": {
-        "type": "mercator"
+        "type": "mercator",
+        "scale": {"expr": "zoom_level"}
     },
     "layer":[
         {
