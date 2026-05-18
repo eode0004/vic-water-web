@@ -5,17 +5,20 @@
     "params": [
         {
             "name": "Month_selection",
-            "value": 0,
+            "value": 1,
             "bind": {
                 "input": "range",
-                "min": 0,
+                "min": 1,
                 "max": 11,
-                "step": 1,
+                "step": 2,
                 "name": "Months since 07/2024: "
             }
+        },
+        {
+            "name": ""
         }
     ],
-    "title": "Named Victorian Water Bodies",
+    "title": "Water Data from Selected Sites",
     "projection": {
         "type": "mercator"
     },
@@ -35,21 +38,37 @@
         {
             "data": {
                 "name": "water_points",
-                "url": "graphs/data/water_points.topojson",
-                "format": {"type": "topojson", "feature": "water_points"}
+                "url": "graphs/data/water_points.csv",
+                "format": {"type": "csv"}
             },
             "transform": [
+                {"filter": "datum.LAT != 0"},
+                {"filter": "datum.LON != 0"},
                 {"filter": "(datum.RoundDate + 5) % 12 == Month_selection"}
             ],
             "mark": {
-                "type": "circle",
-                "size": 40,
-                "color": "cyan"
+                "type": "circle"
             },
             "encoding": {
                 "latitude": {"field": "LAT", "type": "quantitative"},
                 "longitude": {"field": "LON", "type": "quantitative"},
+
+                "size": {"field": "Streamflow", "type":"quantitative"},
+                "color": {
+                    "field": "Temperature",
+                    "type": "quantitative",
+                    "scale": {
+                        "scheme": "redblue",
+                        "reverse": true
+                    }
+                },
+                "opacity": {
+                    "field": "Turbidity",
+                    "type": "quantitative"
+                },
+
                 "tooltip": [
+                    {"field": "Name", "type": "nominal", "title": "Site name: "},
                     {"field": "Streamflow", "type": "quantitative", "title": "Streamflow: "},
                     {"field": "Turbidity", "type": "quantitative", "title": "Turbidity: "},
                     {"field": "Temperature", "type": "quantitative", "title": "Temperature (degrees C): "}
