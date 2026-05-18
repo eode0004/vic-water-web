@@ -37,7 +37,7 @@
         {
             "data": {
                 "name": "vic_base",
-                "url": "https://raw.githubusercontent.com/eode0004/vic-water-web/main/graphs/data/VICGOV_REGION.json",
+                "url": "graphs/data/VICGOV_REGION.json",
                 "format": {"type": "topojson", "feature": "VICGOV_REGION"}
             },
             "mark": {
