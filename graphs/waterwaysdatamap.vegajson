@@ -5,12 +5,12 @@
     "params": [
         {
             "name": "Month_selection",
-            "value": 1,
+            "value": 0,
             "bind": {
                 "input": "range",
-                "min": 1,
+                "min": 0,
                 "max": 11,
-                "step": 2,
+                "step": 1,
                 "name": "Months since 07/2024: "
             }
         },
@@ -48,8 +48,8 @@
             "bind": {
                 "input": "range",
                 "min": 0,
-                "max": 10000,
-                "step": 100,
+                "max": 30000,
+                "step": 1000,
                 "name": "Zoom level: "
             }
         }
@@ -82,7 +82,8 @@
             "transform": [
                 {"filter": "datum.LAT != 0"},
                 {"filter": "datum.LON != 0"},
-                {"filter": "(datum.RoundDate + 5) % 12 == Month_selection"}
+                {"calculate": "toNumber(datum.RoundDate)", "as": "round_month"},
+                {"filter": "((datum.round_month + 5) % 12) == Month_selection"}
             ],
             "mark": {
                 "type": "circle"
