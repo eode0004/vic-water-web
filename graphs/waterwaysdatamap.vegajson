@@ -5,13 +5,38 @@
     "params": [
         {
             "name": "Month_selection",
-            "value": 0,
+            "value": 6,
             "bind": {
-                "input": "range",
-                "min": 0,
-                "max": 11,
-                "step": 1,
-                "name": "Months since 07/2024: "
+                "input": "select",
+                "options": [
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "labels": [
+                    "July 2024",
+                    "August 2024",
+                    "September 2024",
+                    "October 2024",
+                    "November 2024",
+                    "December 2024",
+                    "January 2025",
+                    "February 2025",
+                    "March 2025",
+                    "April 2025",
+                    "May 2025",
+                    "June 2025"
+                ],
+                "name": "Month: "
             }
         },
         {
@@ -83,10 +108,11 @@
                 {"filter": "datum.LAT != 0"},
                 {"filter": "datum.LON != 0"},
                 {"calculate": "toNumber(datum.RoundDate)", "as": "round_month"},
-                {"filter": "((datum.round_month + 5) % 12) == Month_selection"}
+                {"filter": "datum.round_month == Month_selection"}
             ],
             "mark": {
-                "type": "circle"
+                "type": "circle",
+                "stroke": "#111111"
             },
             "encoding": {
                 "latitude": {"field": "LAT", "type": "quantitative"},
@@ -98,7 +124,7 @@
                     "scale": {
                         "range": [50, 1000]
                     },
-                    "title": "Streamflow (ML/day)"
+                    "title": "Streamflow (Megalitres/day)"
                 },
                 "color": {
                     "field": "Temperature",
@@ -107,7 +133,7 @@
                         "scheme": "redblue",
                         "reverse": true
                     },
-                    "title": "Temperature (degrees C)"
+                    "title": "Temperature (degrees Celsius)"
                 },
                 "opacity": {
                     "field": "Turbidity",
@@ -120,9 +146,9 @@
 
                 "tooltip": [
                     {"field": "Name", "type": "nominal", "title": "Site name: "},
-                    {"field": "Streamflow", "type": "quantitative", "title": "Streamflow: "},
-                    {"field": "Turbidity", "type": "quantitative", "title": "Turbidity: "},
-                    {"field": "Temperature", "type": "quantitative", "title": "Temperature (degrees C): "}
+                    {"field": "Streamflow", "type": "quantitative", "title": "Streamflow (ML/Day): "},
+                    {"field": "Turbidity", "type": "quantitative", "title": "Turbidity (NTU): "},
+                    {"field": "Temperature", "type": "quantitative", "title": "Temperature (°C): "}
                 ]
             }
         }

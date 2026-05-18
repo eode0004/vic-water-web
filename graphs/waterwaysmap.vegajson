@@ -92,6 +92,7 @@
                 "color":{
                     "field": "use_label",
                     "type": "nominal",
+                    "title": "Water body use",
                     "scale": {
                         "domain": [
                             "Water Supply", 
@@ -144,6 +145,7 @@
                 "stroke":{
                     "field": "use_label",
                     "type": "nominal",
+                    "title": "Water body use",
                     "scale": {
                         "domain": [
                             "Water Supply", 
