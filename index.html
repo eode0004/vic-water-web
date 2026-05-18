@@ -14,19 +14,19 @@
 <body>
   
 <div id="waterways_map"></div>
-<!-- <div id="waterdata_map"></div> -->
+<div id="waterdata_map"></div>
 
 <script type="text/javascript">
 
-  var spec2 = "graphs/waterwaysmap.json";
+  var spec2 = "https://raw.githubusercontent.com/eode0004/vic-water-web/main/waterwaysmap.json";
   vegaEmbed('#waterways_map', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-//   var spec3 = "graphs/waterwaysdatamap.json";
-//   vegaEmbed('#waterdata_map', spec3).then(function(result) {
-//     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-//   }).catch(console.error);
+  var spec3 = "https://raw.githubusercontent.com/eode0004/vic-water-web/main/waterwaysdatamap.json";
+  vegaEmbed('#waterdata_map', spec3).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 </script>
 
 </body>
