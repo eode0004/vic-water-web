@@ -18,6 +18,18 @@
                 "fill": "#e8e8e8",
                 "stroke": "#eeeeee"
             }
+        },
+        {
+            "data": {
+                "name": "water_points",
+                "url": "graphs/data/water_points.topojson",
+                "format": {"type": "topojson", "feature": "water_points"}
+            },
+            "mark": {
+                "type": "circle",
+                "size": 40,
+                "color": "cyan"
+            }
         }
     ]
 }
