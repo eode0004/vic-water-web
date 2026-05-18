@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Victorian Waterways Data",
+
+    "params":[
+        {
+            "name": "Month_selection",
+            "value": 12,
+            "bind": {
+                "input": "range",
+                "min": 1,
+                "max": 12,
+                "step": 1,
+                "name": "Months since 07/2024: "
+            }
+        },
+        {
+            "name": "zoom_level",
+            "value": 30000,
+            "bind": {
+                "input": "range",
+                "min": 3500,
+                "max": 60000,
+                "step": 100,
+                "name": "Zoom: "
+            }
+        }
+    ],
+
+    "projection": {
+        "type": "mercator",
+        "scale": {"expr": "zoom_level"}
+    },
+    "layer": [
+        {
+            "data": {
+                "name": "vic_base",
+                "url": "https://raw.githubusercontent.com/eode0004/vic-water-web/main/graphs/data/VICGOV_REGION.json",
+                "format": {"type": "topojson", "feature": "VICGOV_REGION"}
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#e8e8e8",
+                "stroke": "#eeeeee"
+            }
+        }
+
+    ]
+}
