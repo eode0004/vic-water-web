@@ -92,18 +92,30 @@
                 "latitude": {"field": "LAT", "type": "quantitative"},
                 "longitude": {"field": "LON", "type": "quantitative"},
 
-                "size": {"field": "Streamflow", "type":"quantitative"},
+                "size": {
+                    "field": "Streamflow", 
+                    "type":"quantitative",
+                    "scale": {
+                        "range": [50, 1000]
+                    },
+                    "title": "Streamflow (ML/day)"
+                },
                 "color": {
                     "field": "Temperature",
                     "type": "quantitative",
                     "scale": {
                         "scheme": "redblue",
                         "reverse": true
-                    }
+                    },
+                    "title": "Temperature (degrees C)"
                 },
                 "opacity": {
                     "field": "Turbidity",
-                    "type": "quantitative"
+                    "type": "quantitative",
+                    "scale": {
+                        "range": [0.5, 1.0]
+                    },
+                    "title": "Turbidity (Nephelometric Turbidity Units)"
                 },
 
                 "tooltip": [
