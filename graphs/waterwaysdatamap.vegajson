@@ -2,6 +2,19 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
+    "params": [
+        {
+            "name": "Month_selection",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 11,
+                "step": 1,
+                "name": "Months since 07/2024: "
+            }
+        }
+    ],
     "title": "Named Victorian Water Bodies",
     "projection": {
         "type": "mercator"
@@ -25,10 +38,22 @@
                 "url": "graphs/data/water_points.topojson",
                 "format": {"type": "topojson", "feature": "water_points"}
             },
+            "transform": [
+                {"filter": "(datum.RoundDate + 5) % 12 == Month_selection"}
+            ],
             "mark": {
                 "type": "circle",
                 "size": 40,
                 "color": "cyan"
+            },
+            "encoding": {
+                "latitude": {"field": "LAT", "type": "quantitative"},
+                "longitude": {"field": "LON", "type": "quantitative"},
+                "tooltip": [
+                    {"field": "Streamflow", "type": "quantitative", "title": "Streamflow: "},
+                    {"field": "Turbidity", "type": "quantitative", "title": "Turbidity: "},
+                    {"field": "Temperature", "type": "quantitative", "title": "Temperature (degrees C): "}
+                ]
             }
         }
     ]
