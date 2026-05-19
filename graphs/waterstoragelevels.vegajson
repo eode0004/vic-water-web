@@ -10,8 +10,12 @@
     },
     "mark": "bar",
     "encoding": {
-        "column": {"field": "Reservoir", "header": {"orient": "bottom"}},
-        "x": {"field": "System", "type": "nominal"},
+        "column": {
+            "field": "System", 
+            "type": "nominal", 
+            "header": {"labelAngle": -45, "orient": "bottom", "labelAnchor": "end"},
+            "title": "Water Storage System"
+        },
         "y": {
             "aggregate": "sum", "field": "Value",
             "title": "Water amounts",
