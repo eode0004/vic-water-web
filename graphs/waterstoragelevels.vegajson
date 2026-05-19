@@ -8,13 +8,19 @@
         "url": "graphs/data/storage_levels_january_2010_to_september_2025.csv",
         "format": {"type": "csv"}
     },
+    "transform": [
+        {
+            "calculate": "replace(datum.Attribute, '_', ' ')",
+            "as": "AttrTitles"
+        }
+    ],
     "mark": "bar",
     "encoding": {
         "column": {
             "field": "System", 
-            "type": "nominal", 
-            "header": {"labelAngle": -45, "orient": "bottom", "labelAnchor": "end"},
-            "title": "Water Storage System"
+            "type": "nominal",
+            "title": "Water Storage System",
+            "header": {"labelAnchor": "end", "orient": "bottom", "labelAngle": -45}
         },
         "y": {
             "aggregate": "sum", "field": "Value",
@@ -22,8 +28,9 @@
             "stack": null
         },
         "color": {
-            "field": "Attribute",
-            "scale": {"domain": ["Water_Stored", "Total_Capacity"], "range": ["#4E79A7", "#7EA9A7"]}
+            "field": "AttrTitles",
+            "scale": {"domain": ["Water Stored", "Total Capacity"], "range": ["#4E79A7", "#7EA9A7"]},
+            "legend": {"title": "Stored vs. Capacity (Megalitres)"}
         },
         "opacity": {"value": 0.7}
     }
