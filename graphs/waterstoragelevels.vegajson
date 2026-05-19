@@ -1,37 +1,112 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": 600,
-    "title": "Water Storage Levels and Capacities",
-    "data":  {
-        "name": "water_levels",
-        "url": "graphs/data/storage_levels_january_2010_to_september_2025.csv",
-        "format": {"type": "csv"}
-    },
-    "transform": [
-        {
-            "calculate": "replace(datum.Attribute, '_', ' ')",
-            "as": "AttrTitles"
-        }
-    ],
-    "mark": "bar",
-    "encoding": {
-        "column": {
-            "field": "System", 
-            "type": "nominal",
-            "title": "Water storage system",
-            "header": {"labelAnchor": "end", "orient": "bottom", "labelAngle": -45}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "title": "Water Storage Levels and Capacities",
+  "data": {
+    "name": "water_levels",
+    "url": "graphs/data/storage_levels_january_2010_to_september_2025.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "calculate": "replace(datum.Attribute, '_', ' ')",
+      "as": "AttrTitles"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "System",
+          "type": "nominal",
+          "title": "Water storage system",
+          "axis": {"labelAngle": -45}
         },
         "y": {
-            "aggregate": "sum", "field": "Value",
-            "title": "Water amounts",
-            "stack": null
+          "aggregate": "sum",
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Water amount (megalitres)",
+          "stack": null
         },
         "color": {
-            "field": "AttrTitles",
-            "scale": {"domain": ["Water Stored", "Total Capacity"], "range": ["#4E79A7", "#7EA9A7"]},
-            "legend": {"title": "Stored vs. Capacity (Megalitres)"}
+          "field": "AttrTitles",
+          "scale": {
+            "domain": ["Water Stored", "Total Capacity"],
+            "range": ["#4E79A7", "#7EA9A7"]
+          },
+          "title": "Stored vs. Capacity"
         },
         "opacity": {"value": 0.7}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Attribute == 'Water_Stored'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Value", "as": "TotalValue"}
+          ],
+          "groupby": ["System", "AttrTitles"]
+        },
+        {
+          "calculate": "format(datum.TotalValue / 1000, '.1f') + ' GL'",
+          "as": "Label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -8
+      },
+      "encoding": {
+        "x": {"field": "System", "type": "nominal"},
+        "y": {"field": "TotalValue", "type": "quantitative"},
+        "text": {"field": "Label"},
+        "color": {
+          "field": "AttrTitles",
+          "scale": {
+            "domain": ["Water Stored", "Total Capacity"],
+            "range": ["#4E79A7", "#7EA9A7"]
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Attribute == 'Total_Capacity'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Value", "as": "TotalValue"}
+          ],
+          "groupby": ["System", "AttrTitles"]
+        },
+        {
+          "calculate": "format(datum.TotalValue / 1000, '.1f') + ' GL'",
+          "as": "Label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -20
+      },
+      "encoding": {
+        "x": {"field": "System", "type": "nominal"},
+        "y": {"field": "TotalValue", "type": "quantitative"},
+        "text": {"field": "Label"},
+        "color": {
+          "field": "AttrTitles",
+          "scale": {
+            "domain": ["Water Stored", "Total Capacity"],
+            "range": ["#4E79A7", "#7EA9A7"]
+          }
+        }
+      }
     }
+  ]
 }

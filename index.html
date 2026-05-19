@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Water in Victoria — Visual Dashboard</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  
-<div id="waterways_map"></div>
-<div id="waterdata_map"></div>
-<div id="waterstorage_bar"></div>
-<div id="waterstorage_line"></div>
+  <!-- Top title bar -->
+  <header class="topbar" role="banner" aria-label="Page title">
+    <div class="topbar-inner">
+      <h1 class="site-title">Water in Victoria</h1>
+      <p class="site-subtitle">Life's most precious resource</p>
+    </div>
+  </header>
 
-<script type="text/javascript">
+  <main class="page">
+    <!-- Introduction placeholder -->
+    <section id="intro" class="intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">Introduction</h2>
+      <p>
+        This dashboard provides an overview of water-related metrics across Victoria. Use the charts below to explore supply, consumption, quality indicators, and seasonal trends. The visualizations are interactive and built with Vega-Lite. Replace the placeholder charts and text with your real datasets and specifications.
+      </p>
+    </section>
 
-  var spec2 = "graphs/waterwaysmap.vegajson";
-  vegaEmbed('#waterways_map', spec2).then(function(result) {
+    <!-- First half light background -->
+    <section class="half half--light" aria-label="Light section charts">
+      <h3 class="section-title">Overview Charts</h3>
+
+      <div class="charts-grid">
+        <div id="waterwaysmap" class="chart" role="img" aria-label="Placeholder chart 1"></div>
+        <div id="waterwaysdatamap" class="chart" role="img" aria-label="Placeholder chart 2"></div>
+      </div>
+    </section>
+
+    <!-- Second half dark background -->
+    <section class="half half--dark" aria-label="Dark section charts">
+      <h3 class="section-title">Detailed Analysis</h3>
+
+      <div class="charts-grid">
+        <div id="waterstoragelevels" class="chart chart--standalone" role="img" aria-label="Placeholder chart 3"></div>
+      </div>
+      <div class="charts-grid">
+        <div id="waterstoragehistory" class="chart chart--standalone" role="img" aria-label="Placeholder chart 3"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <small>Placeholder dashboard for Water in Victoria. Replace with real data and sources.</small>
+  </footer>
+
+  <script>
+    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory"];
+    ids.forEach(id => {
+      vegaEmbed('#' + id, "graphs/" + id + ".vegajson").then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec3 = "graphs/waterwaysdatamap.vegajson";
-  vegaEmbed('#waterdata_map', spec3).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec4 = "graphs/waterstoragelevels.vegajson";
-  vegaEmbed('#waterstorage_bar', spec4).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-
-  var spec5 = "graphs/waterstoragehistory.vegajson";
-    vegaEmbed('#waterstorage_line', spec5).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-</script>
-
+     }).catch(console.error)});
+  </script>
 </body>
 </html>
