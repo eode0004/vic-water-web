@@ -100,6 +100,35 @@
         },
         {
             "data": {
+                "name": "waterways_geo",
+                "url": "graphs/data/HY_WATER_AREA_POLYGON_simple.topojson",
+                "format": {"type": "topojson", "feature": "water_clipped"}
+            },
+            "transform": [
+                {
+                    "lookup": "properties.WTR_USE_FN",
+                    "from": {
+                        "data": {"url": "graphs/data/wusefuncs.csv"},
+                        "key": "water_use_function_code",
+                        "fields": ["description"]
+                    },
+                    "as": ["use_label"]
+                },
+                {
+                    "calculate": "datum.properties.WTR_BDY_ST == '2' ? 'Perennial' : datum.properties.WTR_BDY_ST == '1' ? 'Intermittent' : 'Unknown'",
+                    "as": "state_label"
+                }
+
+            ],
+            "mark": {
+                "type": "geoshape", 
+                "strokeWidth": 0.4,
+                "color": "#7EA9A7",
+                "stroke": "#7EA9A7"
+            }
+        },
+        {
+            "data": {
                 "name": "water_points",
                 "url": "graphs/data/water_points.csv",
                 "format": {"type": "csv"}
