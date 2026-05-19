@@ -19,7 +19,7 @@
         "column": {
             "field": "System", 
             "type": "nominal",
-            "title": "Water Storage System",
+            "title": "Water storage system",
             "header": {"labelAnchor": "end", "orient": "bottom", "labelAngle": -45}
         },
         "y": {
