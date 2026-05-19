@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 600,
+    "title": "Water Storage Levels and Capacities",
+    "data":  {
+        "name": "water_levels",
+        "url": "graphs/data/storage_levels_january_2010_to_september_2025.csv",
+        "format": {"type": "csv"}
+    },
+    "mark": "bar",
+    "encoding": {
+        "column": {"field": "Reservoir", "header": {"orient": "bottom"}},
+        "x": {"field": "System", "type": "nominal"},
+        "y": {
+            "aggregate": "sum", "field": "Value",
+            "title": "Water amounts",
+            "stack": null
+        },
+        "color": {
+            "field": "Attribute",
+            "scale": {"domain": ["Water_Stored", "Total_Capacity"], "range": ["#4E79A7", "#7EA9A7"]}
+        },
+        "opacity": {"value": 0.7}
+    }
+}
