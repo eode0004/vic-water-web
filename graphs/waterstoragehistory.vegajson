@@ -5,7 +5,7 @@
     "title": "Water Storage Amounts Over Time",
     "background": "#0d3a5c",
     "config": {
-      "title": {"color": "#e6f6ff"},
+      "title": {"color": "#e6f6ff", "fontSize": 15},
       "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
       "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
     },
@@ -60,7 +60,7 @@
             {
                 "aggregate": "sum", "field": "Value",
                 "type": "quantitative",
-                "title": "Water stored: "
+                "title": "Water stored (megalitres): "
             }
         ]
     }

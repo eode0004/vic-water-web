@@ -5,7 +5,7 @@
   "title": "Water Storage Levels and Capacities",
   "background": "#0d3a5c",
   "config": {
-    "title": {"color": "#e6f6ff"},
+    "title": {"color": "#e6f6ff", "fontSize": 15},
     "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
     "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
   },

@@ -2,6 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": "container",
+    "config": {
+        "title": {"fontSize": 15}
+    },
     "params": [
         {
             "name": "center_to",
