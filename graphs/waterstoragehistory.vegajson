@@ -3,7 +3,7 @@
     "width": "container",
     "height": "container",
     "title": "Water Storage Amounts Over Time",
-    "background": "#0d3a5c",
+    "background": "#00000000",
     "config": {
       "title": {"color": "#e6f6ff", "fontSize": 15},
       "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},

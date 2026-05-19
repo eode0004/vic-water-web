@@ -3,7 +3,8 @@
     "width": "container",
     "height": "container",
     "config": {
-        "title": {"fontSize": 15}
+        "title": {"fontSize": 15},
+        "background": "#00000000"
     },
     "params": [
         {
