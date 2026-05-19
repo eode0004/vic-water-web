@@ -67,7 +67,7 @@
         "baseline": "bottom",
         "dy": -8,
         "color": "#8EB9E7",
-        "size": 10
+        "size": 7
       },
       "encoding": {
         "x": {"field": "System", "type": "nominal"},
@@ -85,7 +85,7 @@
           "groupby": ["System", "AttrTitles"]
         },
         {
-          "calculate": "format(datum.TotalValue / 1000, '.1f') + ' GL'",
+          "calculate": "format(datum.TotalValue / 1000, '.1f') + 'GL'",
           "as": "Label"
         }
       ],
@@ -94,7 +94,7 @@
         "align": "center",
         "baseline": "bottom",
         "dy": -20,
-        "size": 10
+        "size": 7
       },
       "encoding": {
         "x": {"field": "System", "type": "nominal"},
