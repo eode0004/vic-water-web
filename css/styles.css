@@ -75,12 +75,53 @@ body{
   background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
   padding: 1.25rem;
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   box-shadow: 0 1px 3px rgba(2,10,30,0.06);
   gap: 1rem;
 }
 .body-box h2{margin-top:0rem}
 .body-box p{margin-bottom:0.25rem}
+
+.side-by-side{
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+  align-items:stretch;
+  margin-bottom: 1rem;
+}
+
+.side-by-side--chart-right{
+  grid-template-columns: 1fr 3fr;
+}
+
+.side-by-side__chart{
+  display:flex;
+  align-items:stretch;
+}
+
+.side-by-side__chart > .chart{
+  flex:1;
+  min-height: 520px;
+}
+
+.side-by-side__copy{
+  background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(2,10,30,0.06);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap: 1rem;
+}
+
+.side-by-side__copy h2{
+  margin:0;
+}
+
+.side-by-side__copy p{
+  margin:0;
+}
 
 /* Half sections */
 .half{
@@ -109,7 +150,7 @@ body{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .chart{
   background: rgba(255,255,255,0.02);

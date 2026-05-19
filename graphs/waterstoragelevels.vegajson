@@ -41,7 +41,7 @@
           "field": "AttrTitles",
           "scale": {
             "domain": ["Water Stored", "Total Capacity"],
-            "range": ["#4E79A7", "#5E8987"]
+            "range": ["#4E79A7", "#6E9997"]
           },
           "title": "Stored vs. Capacity"
         }
