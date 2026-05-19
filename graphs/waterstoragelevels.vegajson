@@ -3,6 +3,12 @@
   "width": "container",
   "height": "container",
   "title": "Water Storage Levels and Capacities",
+  "background": "#0d3a5c",
+  "config": {
+    "title": {"color": "#e6f6ff"},
+    "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
+    "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+  },
   "data": {
     "name": "water_levels",
     "url": "graphs/data/storage_levels_january_2010_to_september_2025.csv",
@@ -16,7 +22,7 @@
   ],
   "layer": [
     {
-      "mark": {"type": "bar", "tooltip": true},
+      "mark": {"type": "bar", "tooltip": true, "opacity": 0.9},
       "encoding": {
         "x": {
           "field": "System",
@@ -35,11 +41,10 @@
           "field": "AttrTitles",
           "scale": {
             "domain": ["Water Stored", "Total Capacity"],
-            "range": ["#4E79A7", "#7EA9A7"]
+            "range": ["#4E79A7", "#5E8987"]
           },
           "title": "Stored vs. Capacity"
-        },
-        "opacity": {"value": 0.7}
+        }
       }
     },
     {
@@ -60,19 +65,14 @@
         "type": "text",
         "align": "center",
         "baseline": "bottom",
-        "dy": -8
+        "dy": -8,
+        "color": "#8EB9E7",
+        "size": 10
       },
       "encoding": {
         "x": {"field": "System", "type": "nominal"},
         "y": {"field": "TotalValue", "type": "quantitative"},
-        "text": {"field": "Label"},
-        "color": {
-          "field": "AttrTitles",
-          "scale": {
-            "domain": ["Water Stored", "Total Capacity"],
-            "range": ["#4E79A7", "#7EA9A7"]
-          }
-        }
+        "text": {"field": "Label"}
       }
     },
     {
@@ -93,7 +93,8 @@
         "type": "text",
         "align": "center",
         "baseline": "bottom",
-        "dy": -20
+        "dy": -20,
+        "size": 10
       },
       "encoding": {
         "x": {"field": "System", "type": "nominal"},
@@ -103,7 +104,7 @@
           "field": "AttrTitles",
           "scale": {
             "domain": ["Water Stored", "Total Capacity"],
-            "range": ["#4E79A7", "#7EA9A7"]
+            "range": ["#2E5987", "#5E8987"]
           }
         }
       }

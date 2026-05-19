@@ -114,7 +114,7 @@ body{
   min-height: 520px;
 }
 .half--light .chart{
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.02);
   box-shadow: 0 1px 2px rgba(2,10,30,0.04);
 }
 .half--dark .chart{
