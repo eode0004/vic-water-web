@@ -1,0 +1,62 @@
+{
+      "transform": [
+        {"filter": "datum.Attribute == 'Water_Stored'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Value", "as": "TotalValue"}
+          ],
+          "groupby": ["System", "AttrTitles"]
+        },
+        {
+          "calculate": "format(datum.TotalValue / 1000, '.1f') + ' GL'",
+          "as": "Label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -8,
+        "color": "#8EB9E7",
+        "size": 7
+      },
+      "encoding": {
+        "x": {"field": "System", "type": "nominal"},
+        "y": {"field": "TotalValue", "type": "quantitative"},
+        "text": {"field": "Label"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.Attribute == 'Total_Capacity'"},
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Value", "as": "TotalValue"}
+          ],
+          "groupby": ["System", "AttrTitles"]
+        },
+        {
+          "calculate": "format(datum.TotalValue / 1000, '.1f') + 'GL'",
+          "as": "Label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -20,
+        "size": 7
+      },
+      "encoding": {
+        "x": {"field": "System", "type": "nominal"},
+        "y": {"field": "TotalValue", "type": "quantitative"},
+        "text": {"field": "Label"},
+        "color": {
+          "field": "AttrTitles",
+          "scale": {
+            "domain": ["Water Stored", "Total Capacity"],
+            "range": ["#2E5987", "#5E8987"]
+          }
+        }
+      }
+    }

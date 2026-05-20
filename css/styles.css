@@ -21,12 +21,15 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
-
+.topbar-spacer {
+  height: 64px; /* match topbar height */
+  width: 100%;
+}
 /* Topbar */
 .topbar{
   background: linear-gradient(180deg,var(--dark-blue), #083a86);
   color: #fff;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 40;
   width:100%;
