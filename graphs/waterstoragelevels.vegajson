@@ -18,7 +18,8 @@
     {
       "calculate": "replace(datum.Attribute, '_', ' ')",
       "as": "AttrTitles"
-    }
+    },
+    {"calculate": "datum.Value / 1000", "as": "ValueGL"}
   ],
   "layer": [
     {
@@ -32,9 +33,9 @@
         },
         "y": {
           "aggregate": "sum",
-          "field": "Value",
+          "field": "ValueGL",
           "type": "quantitative",
-          "title": "Water amount (megalitres)",
+          "title": "Water volume (gigalitres)",
           "stack": null
         },
         "color": {
