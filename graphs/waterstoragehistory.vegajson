@@ -44,7 +44,7 @@
         },
         "opacity": {
             "condition": {"param": "system_highlight", "value": 1},
-            "value": 0.2
+            "value": 0.05
         },
         "tooltip": [
             {
