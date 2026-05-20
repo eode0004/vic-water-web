@@ -40,11 +40,14 @@
         },
         "color": {
             "field": "System",
-            "type": "nominal"
+            "type": "nominal",
+            "scale": {
+                "range":"category"
+            }
         },
         "opacity": {
             "condition": {"param": "system_highlight", "value": 1},
-            "value": 0.05
+            "value": 0.1
         },
         "tooltip": [
             {
