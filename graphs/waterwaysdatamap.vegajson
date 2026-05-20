@@ -99,7 +99,7 @@
             "mark": {
                 "type": "geoshape",
                 "fill": "#e8e8e8",
-                "stroke": "#eeeeee"
+                "stroke": "#444444"
             }
         },
         {
