@@ -179,6 +179,31 @@
                     {"field": "state_label", "type": "nominal", "title": "Intermittent or Perennial?"}
                 ]
             }
+        },
+        {
+            "data": {
+                "name": "vic_base",
+                "url": "graphs/data/VICGOV_REGION.topojson",
+                "format": {"type": "topojson", "feature": "VICGOV_REGION"}
+            },
+            "mark": {"type": "text"},
+            "encoding": {
+                "text": {
+                    "condition": {
+                        "test": "zoom_level < 10000",
+                        "value": ""
+                    },
+                    "field": "properties.VGREG"
+                },
+                "longitude": {
+                    "field": "properties.lon",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "properties.lat",
+                    "type": "quantitative"
+                }
+            }
         }
     ]
 }
