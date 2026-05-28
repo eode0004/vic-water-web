@@ -53,6 +53,10 @@
       <div class="charts-grid">
         <div id="waterwaysdatamap" class="chart chart--standalone" role="img" aria-label="Placeholder chart 2"></div>
       </div>
+      <div class="charts-grid">
+        <div id="waterent" class="chart" role="img" aria-label="Water entitlements"></div>
+        
+      </div>
     </section>
 
     <!-- Second half dark background -->
@@ -80,6 +84,7 @@
           <div id="waterstoragehistory" class="chart chart--standalone" role="img" aria-label="Water storage history"></div>
         </div>
       </div>
+
     </section>
   </main>
 
@@ -88,7 +93,7 @@
   </footer>
 
   <script>
-    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory"];
+    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory", "waterent"];
     ids.forEach(id => {
       vegaEmbed('#' + id, "graphs/" + id + ".vegajson").then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

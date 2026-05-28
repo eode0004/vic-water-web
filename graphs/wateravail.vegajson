@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Water Entitlements Over Time, by Type",
+    "config": {
+        "title": {"fontSize": 15, "color": "#ffffff"},
+        "background": "#00000000",
+        "axis": {
+            "labelColor": "#ffffff",
+            "titleColor": "#ffffff"
+        },
+        "legend": {
+            "labelColor": "#ffffff",
+            "titleColor": "#ffffff"
+        }
+    },
+    
+}

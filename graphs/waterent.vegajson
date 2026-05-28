@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Water Entitlements Over Time, by Type",
+    "config": {
+        "title": {"fontSize": 15, "color": "#ffffff"},
+        "background": "#00000000",
+        "axis": {
+            "labelColor": "#ffffff",
+            "titleColor": "#ffffff"
+        },
+        "legend": {
+            "labelColor": "#ffffff",
+            "titleColor": "#ffffff"
+        }
+    },
+    "data": {
+        "url": "graphs/data/water-entitlements-by-type-table.csv",
+        "format": {"type": "csv"}
+    },
+    "mark": {
+        "type": "area",
+        "tooltip": true
+    },
+    "transform": [
+        {
+            "calculate": "substring(datum['Water year'], 0, 4)",
+            "as": "YearStarting"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "YearStarting",
+            "type": "ordinal",
+            "axis": {"title": "Water Year (Starting In)"},
+            "title": "Water Year (Starting In)"
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "Value",
+            "type": "quantitative",
+            "axis": {"title": "Water Entitlements (ML)"},
+            "title": "Water Entitlements (Megalitres)"
+        },
+        "color": {
+            "field": "Heading",
+            "type": "nominal",
+            "legend": {"title": "Entitlement Type"},
+            "title": "Entitlement Type",
+            "scale": {
+                        "domain": ["Desalinated water (consumptive)", "Groundwater (consumptive)", "Surface water (consumptive)", "Surface water (environment)"],
+                        "range": ["#ff4444", "#ffff44", "#4444ff", "#44ff44"]
+                    }
+        }
+    }
+}
