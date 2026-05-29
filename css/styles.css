@@ -6,7 +6,7 @@
   --text-dark: #021a3a;        /* very dark blue text on light backgrounds */
   --text-light: #e6f6ff;       /* very light blue text on dark backgrounds */
   --max-width: 1200px;
-  --gutter: 1rem;
+  --gutter: 0.5rem;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
@@ -215,6 +215,8 @@ body{
   .site-title{font-size:1.5rem}
   .site-subtitle{font-size:1rem}
 }
+
+
 
 /* #waterwaysmap {
 	top:100px;
