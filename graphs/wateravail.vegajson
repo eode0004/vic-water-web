@@ -2,18 +2,65 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": "container",
-    "title": "Water Entitlements Over Time, by Type",
+    "title": "Water Availability vs. Entitlements",
     "config": {
-        "title": {"fontSize": 15, "color": "#ffffff"},
-        "background": "#00000000",
-        "axis": {
-            "labelColor": "#ffffff",
-            "titleColor": "#ffffff"
-        },
-        "legend": {
-            "labelColor": "#ffffff",
-            "titleColor": "#ffffff"
-        }
+        "title": {"fontSize": 15}
     },
-    
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": "2023",
+            "bind": {
+                "input": "select",
+                "options": ["2020", "2021", "2022", "2023"],
+                "labels": ["2020-21", "2021-22", "2022-23", "2023-24"],
+                "name": "Select Water Year: "
+            }
+        }
+    ],
+    "data": {
+        "url": "graphs/data/availentitle_unpivot.csv",
+        "format": {"type": "csv"}
+    },
+    "transform": [
+        {
+            "calculate": "substring(datum['Water year'], 0, 4)",
+            "as": "YearStarting"
+        },
+        {
+            "calculate": "datum.Value / 1000",
+            "as": "ValueGL"
+        },
+        {
+            "filter": "datum['YearStarting'] === selectedYear"
+        }
+    ],
+    "mark": {
+        "type": "bar",
+        "tooltip": true
+    },
+    "encoding": {
+        "x": {
+            "field": "Attribute",
+            "type": "nominal",
+            "axis": {"title": "Category"},
+            "title": "Category"
+        },
+        "y": {
+            "field": "ValueGL",
+            "type": "quantitative",
+            "axis": {"title": "Amount (Megalitres)"},
+            "title": "Amount (Megalitres)"
+        },
+        "color": {
+            "field": "Heading",
+            "type": "nominal",
+            "legend": {"title": "Water Source"},
+            "title": "Water Source",
+            "scale": {
+                "domain": ["Groundwater", "Surface water"],
+                "range": ["#ffff44", "#4444ff"]
+            }
+        }
+    }
 }

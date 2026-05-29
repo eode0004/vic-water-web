@@ -4,16 +4,8 @@
     "height": "container",
     "title": "Water Entitlements Over Time, by Type",
     "config": {
-        "title": {"fontSize": 15, "color": "#ffffff"},
-        "background": "#00000000",
-        "axis": {
-            "labelColor": "#ffffff",
-            "titleColor": "#ffffff"
-        },
-        "legend": {
-            "labelColor": "#ffffff",
-            "titleColor": "#ffffff"
-        }
+        "title": {"fontSize": 15},
+        "background": "#00000000"
     },
     "data": {
         "url": "graphs/data/water-entitlements-by-type-table.csv",
@@ -27,6 +19,10 @@
         {
             "calculate": "substring(datum['Water year'], 0, 4)",
             "as": "YearStarting"
+        },
+        {
+            "calculate": "datum.Value / 1000",
+            "as": "ValueGL"
         }
     ],
     "encoding": {
@@ -38,7 +34,7 @@
         },
         "y": {
             "aggregate": "sum",
-            "field": "Value",
+            "field": "ValueGL",
             "type": "quantitative",
             "axis": {"title": "Water Entitlements (ML)"},
             "title": "Water Entitlements (Megalitres)"
@@ -50,7 +46,17 @@
             "title": "Entitlement Type",
             "scale": {
                         "domain": ["Desalinated water (consumptive)", "Groundwater (consumptive)", "Surface water (consumptive)", "Surface water (environment)"],
-                        "range": ["#ff4444", "#ffff44", "#4444ff", "#44ff44"]
+                        "range": ["#ff4444aa", "#ffff44aa", "#4444ffaa", "#8888ffaa"]
+                    }
+        },
+        "stroke": {
+            "field": "Heading",
+            "type": "nominal",
+            "legend": {"title": "Entitlement Type"},
+            "title": "Entitlement Type",
+            "scale": {
+                        "domain": ["Desalinated water (consumptive)", "Groundwater (consumptive)", "Surface water (consumptive)", "Surface water (environment)"],
+                        "range": ["#ff4444", "#ffff44", "#4444ff", "#8888ff"]
                     }
         }
     }
