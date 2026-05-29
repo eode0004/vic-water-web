@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "title": "Water Storage Levels and Capacities",
+  "background": "#00000000",
+  "config": {
+    "title": {"color": "#e6f6ff", "fontSize": 15},
+    "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
+    "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+  },
+  "data": {
+    "url": "graphs/data/useavailentitle_totals.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "area"
+  },
+  "transform": [
+        {
+            "calculate": "substring(datum['Water year'], 0, 4)",
+            "as": "YearStarting"
+        },
+        {
+            "calculate": "datum.Value / 1000",
+            "as": "ValueGL"
+        },
+        {
+            "filter": "datum.Attribute != 'Total Available'"
+        }
+    ],
+  "encoding": {
+    "x": {
+      "field": "YearStarting",
+      "type": "ordinal",
+      "axis": {"title": "Water Year (Starting In)"},
+      "title": "Water Year (Starting In)"
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "ValueGL",
+      "type": "quantitative",
+      "axis": {"title": "Water Amount (GL)"},
+      "title": "Water Amount (GL)",
+      "stack": null
+    },
+    "color": {
+      "field": "Attribute",
+      "type": "nominal",
+      "legend": {"title": "Category"},
+      "title": "Category",
+      "scale": {
+        "domain": ["Total Use", "Total Entitlement"],
+        "range": ["#4444ff88", "#44ff4444"]
+    }
+    },
+    "order": {
+      "field": "Attribute",
+      "type": "nominal",
+      "sort": "descending"
+    }
+  }
+}
