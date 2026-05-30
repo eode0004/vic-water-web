@@ -50,8 +50,9 @@
         "y": {
             "field": "ValueGL",
             "type": "quantitative",
-            "axis": {"title": "Amount (Megalitres)"},
-            "title": "Amount (Megalitres)"
+            "axis": {"title": "Amount (Gigalitres)"},
+            "title": "Amount (Gigalitres)",
+            "scale": {"domain": [0, 50000]}
         },
         "color": {
             "field": "Heading",
