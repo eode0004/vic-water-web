@@ -46,7 +46,8 @@
             "type": "nominal",
             "scale": {
                 "range":"category"
-            }
+            },
+            "title": "Water system"
         },
         "opacity": {
             "condition": {"param": "system_highlight", "value": 1},
