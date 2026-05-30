@@ -64,7 +64,12 @@
     <section class="half half--dark" aria-label="Dark section charts">
       <h3 class="section-title">Water, and How We're Using It</h3>
 
+      <div class="charts-grid">
+          <div id="recyclemap" class="chart chart--standalone" role="img" aria-label="Water recycling map"></div>
+        </div>
+
       <div class="side-by-side side-by-side--chart-right">
+
         <div class="side-by-side__copy">
           <h2>Current Storage Levels</h2>
           <p>This chart shows current reservoir storage across Victoria, helping to compare available supply and regional capacity. (AI-generated placeholder)</p>
@@ -88,8 +93,8 @@
 
       <div class="charts-grid">
         <div id="wateruseentitle" class="chart" role="img" aria-label="Water use and entitlements"></div>
-       </div>
-
+        <div id="usebysector" class="chart" role="img" aria-label="Water use by sector"></div>
+      </div>
     </section>
   </main>
 
@@ -98,7 +103,7 @@
   </footer>
 
   <script>
-    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory", "waterent", "wateravail", "wateruseentitle"];
+    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory", "waterent", "wateravail", "wateruseentitle", "usebysector", "recyclemap"];
     ids.forEach(id => {
       vegaEmbed('#' + id, "graphs/" + id + ".vegajson").then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

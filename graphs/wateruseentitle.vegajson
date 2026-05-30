@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": "container",
-  "title": "Water Storage Levels and Capacities",
+  "title": "Water Use and Entitlements",
   "background": "#00000000",
   "config": {
     "title": {"color": "#e6f6ff", "fontSize": 15},
@@ -40,8 +40,8 @@
       "aggregate": "sum",
       "field": "ValueGL",
       "type": "quantitative",
-      "axis": {"title": "Water Amount (GL)"},
-      "title": "Water Amount (GL)",
+      "axis": {"title": "Water used (Gigalitres)"},
+      "title": "Water used (Gigalitres)",
       "stack": null
     },
     "color": {

@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Water Recycling Plants of Victoria",
+    "background": "#00000000",
+    "config": {
+        "title": {"color": "#e6f6ff", "fontSize": 15},
+        "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+    },
+    "layer": [
+        {
+            "data": {
+                "name": "vic_base",
+                "url": "graphs/data/VICGOV_REGION.topojson",
+                "format": {"type": "topojson", "feature": "VICGOV_REGION"}
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#e8e8e8",
+                "stroke": "#444444"
+            }
+        },
+        {
+            "data": {
+            "url": "graphs/data/RW_AVAILABILITY.csv",
+            "format": {"type": "csv"}
+            },
+            "transform": [
+                {
+                    "calculate": "substring(datum.CLASS, 0, 1)",
+                    "as": "MaxClass"
+                },
+                {
+                    "calculate": "datum.TOTAL_PROD / 1000",
+                    "as": "TOTAL_PROD_GL"
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "tooltip": true,
+                "stroke": "#111111"
+            },
+            "encoding": {
+                "longitude": {"field": "LONGITUDE", "type": "quantitative"},
+                "latitude": {"field": "LATITUDE", "type": "quantitative"},
+                "size": {
+                    "field": "TOTAL_PROD_GL", 
+                    "type": "quantitative",
+                    "title": "Water Production (GL/year)"
+                },
+                "color": {
+                    "field": "MaxClass", 
+                    "type": "nominal", 
+                    "legend": {"title": "Max Class"},
+                    "scale": {
+                        "domain": ["A", "B", "C", "\""],
+                        "range": ["#44ff44aa", "#ffff44aa", "#ff4444aa", "#888888aa"]
+                    }
+                },
+                "stroke": {
+                    "field": "MaxClass", 
+                    "type": "nominal", 
+                    "legend": {"title": "Max Class"},
+                    "scale": {
+                        "domain": ["A", "B", "C", "\""],
+                        "range": ["#44aa44", "#aaaa44", "#aa4444", "#888888"]
+                    }
+                },
+                "tooltip": [
+                    {"field": "TREATPLANT", "type": "nominal", "title": "Plant Name: "},
+                    {"field": "OWNER", "type": "nominal", "title": "Plant Owner: "},
+                    {"field": "TOTAL_PROD_GL", "type": "quantitative", "title": "Recycled Water Production (Gigalitres/year): "},
+                    {"field": "CLASS", "type": "nominal", "title": "Water Quality Class/es: "}
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Water Use by Sector",
+    "background": "#00000000",
+    "config": {
+        "title": {"color": "#e6f6ff", "fontSize": 15},
+        "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
+        "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+    },
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": "2023",
+            "bind": {
+                "input": "select",
+                "options": ["2020", "2021", "2022", "2023"],
+                "labels": ["2020-21", "2021-22", "2022-23", "2023-24"],
+                "name": "Select Water Year: "
+            }
+        }
+    ],
+    "data": {
+        "url": "graphs/data/water_use_sectors.csv",
+        "format": {"type": "csv"}
+    },
+    "transform": [
+        {
+            "calculate": "substring(datum['Water year'], 0, 4)",
+            "as": "YearStarting"
+        },
+        {
+            "calculate": "datum['Volume of use (ML)'] / 1000",
+            "as": "ValueGL"
+        },
+        {
+            "filter": "datum['YearStarting'] === selectedYear"
+        }
+    ],
+    "mark": {
+        "type": "arc",
+        "tooltip": true
+    },
+    "encoding": {
+        "theta": {
+            "field": "ValueGL",
+            "type": "quantitative",
+            "title": "Water amount (Gigalitres)"
+        },
+        "color": {
+            "field": "Heading",
+            "type": "nominal",
+            "legend": {"title": "Sector"},
+            "title": "Sector",
+            "scale": {
+                        "domain": ["Domestic and stock", "Environmental deliveries", "Irrigation", "Power generation", "Urban and commercial"],
+                        "range": ["#ff4444aa", "#44ff44aa", "#4444ffaa", "#ffff44aa", "#888888aa"]
+                    }
+        },
+        "stroke": {
+            "field": "Heading",
+            "type": "nominal",
+            "legend": {"title": "Sector"},
+            "title": "Sector",
+            "scale": {
+                        "domain": ["Domestic and stock", "Environmental deliveries", "Irrigation", "Power generation", "Urban and commercial"],
+                        "range": ["#ff4444", "#44ff44", "#4444ff", "#ffff44", "#888888"]
+                    }
+        }
+    }
+}
