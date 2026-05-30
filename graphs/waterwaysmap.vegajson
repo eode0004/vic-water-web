@@ -102,9 +102,7 @@
                             "Water Supply", 
                             "Flood Control", 
                             "Salt Evaporation", 
-                            "Sewerage", 
-                            "Tailing Dam", 
-                            "Cooling Ponds",
+                            "Sewerage",
                             "Drainage",
                             "None"
                         ],
@@ -113,8 +111,6 @@
                             "#76B7B2",
                             "#F28E2B",
                             "#E15759",
-                            "#B07AA1",
-                            "#59A14F",
                             "#DEB837",
                             "#D0D0D0"
                         ]

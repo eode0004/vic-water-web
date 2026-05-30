@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/styles.css"/>
   <link rel="icon" type="image/x-icon" href="5611083.ico">
+
 </head>
 <body>
   <!-- Top title bar -->
@@ -26,19 +27,25 @@
     <section id="intro" class="intro" aria-labelledby="intro-heading">
       <h2 id="intro-heading">Introduction</h2>
       <p>
-        This dashboard provides an overview of water-related metrics across Victoria. Use the charts below to explore supply, consumption, quality indicators, and seasonal trends. The visualizations are interactive and built with Vega-Lite. (AI-generated placeholder)
+        Out of all the resources harvested and distributed across Victoria, water is undoubtedly the most vital. With it, crops grow, industry thrives, and ecosystems flourish; without it, life as we know it becomes impossible. This dashboard aims to provide an overview of water in Victoria, in hopes of highlighting the incredible magnitude and importance of what is done with this resource in our state.
+      </p>
     </section>
 
     <!-- First half light background -->
     <section class="half half--light" aria-label="Light section charts">
-      <h3 class="section-title">Water, and How It's Available</h3>
+      <h3 class="section-title"><b>What We Have:</b> Water Resources of Victoria</h3>
       <div id="waterways-map-explainer" class="body-box">
         <h2>
           Waterways of Victoria
         </h2>
         <p>
-          This is placeholder text. By the time this webpage is finished, it will describe the contents of the map below it. (Human-generated placeholder)
+          To understand the scale of the resource that is water, it's necessary to understand how it already naturally flows through our state. The map below shows major named rivers and water bodies in Victoria, alongside what we use them for. While many of these waterways are for drainage, or are without purpose, swathes of area are used to supply this crucial commodity for the people of Victoria.
         </p>
+        <p>
+          <b>Fun fact:</b> Lake Borrie can be viewed by zooming in around the western coast of Port Phillip Bay; it's coloured red, meaning it's technically zoned for sewerage. Though it is contained within Melbourne Water's Western Treatment Plant, it's also home to a great variety of birdlife, and is regarded as one of the best birdwatching sites in Australia!
+        </p>
+
+        <small>Click on the slider to zoom.</small>
       </div>
 
       <div class="charts-grid">
@@ -125,14 +132,19 @@
 
         <div id="wateruseentitle" class="chart" role="img" aria-label="Water use and entitlements"></div>
         <div id="usebysector" class="chart" role="img" aria-label="Water use by sector"></div>
-        
+
       </div>
+
+      <div class="charts-grid">
+
+        <div id="populationavail" class="chart chart--standalone" role="img" aria-label="Population and water availability"></div>
 
     </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <small>Dashboard under construction for Water in Victoria.</small>
+    <a href="https://www.flaticon.com/free-icons/water-drop" title="water drop icons">Water drop icons created by zafdesign - Flaticon</a>
   </footer>
 
   <script>
@@ -146,7 +158,8 @@
       "wateruseentitle", 
       "usebysector", 
       "recyclemap",
-      "recycleburst"
+      "recycleburst",
+      "populationavail"
     ];
     ids.forEach(id => {
       vegaEmbed('#' + id, "graphs/" + id + ".vegajson", { actions: false }).then(function(result) {

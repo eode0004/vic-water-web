@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Population vs. Available Water",
+    "background": "#00000000",
+    "config": {
+      "title": {"fontSize": 15, "color": "#e6f6ff"},
+      "axis": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"},
+      "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "graphs/data/population_time.csv",
+                "format": {"type": "csv", "parse": {"Date": "date:%d/%m/%Y"}}
+            },
+            "transform": [
+                {"calculate": "(datum.Population / 6173172) * 100", "as": "PopulationChange"}
+            ],
+            "mark": {
+                "type": "line",
+                "point": true,
+                "tooltip": true
+            },
+            "encoding": {
+                "x": {"field": "Date", "type": "temporal", "title": "Date"},
+                "y": {"field": "PopulationChange", "type": "quantitative", "title": "Population Change (%)"},
+                "color": {"value": "#ffaa44"}
+            }
+        },
+        {
+            "data": {
+                "url": "graphs/data/avail_extended.csv",
+                "format": {"type": "csv", "parse": {"Date": "date:%d/%m/%Y"}}
+            },
+            "transform": [
+                {"calculate": "(datum.Total / 14255141) * 100", "as": "WaterChange"}
+            ],
+            "mark": {
+                "type": "line",
+                "point": true,
+                "tooltip": true
+            },
+            "encoding": {
+                "x": {"field": "Date", "type": "temporal", "title": "Date"},
+                "y": {"field": "WaterChange", "type": "quantitative", "title": "Available Water Change (%)"},
+                "color": {"value": "#8888ff"}
+            }
+        }
+    ]
+}
