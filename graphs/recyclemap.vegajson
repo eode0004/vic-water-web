@@ -47,24 +47,28 @@
                 "size": {
                     "field": "TOTAL_PROD_GL", 
                     "type": "quantitative",
-                    "title": "Water Production (GL/year)"
+                    "title": "Water Production (GL/year)",
+                    "scale": {
+                        "domainMax": 200,
+                        "range": [20, 1000]
+                    }
                 },
                 "color": {
                     "field": "MaxClass", 
                     "type": "nominal", 
-                    "legend": {"title": "Max Class"},
+                    "legend": {"title": "Best quality class produced"},
                     "scale": {
-                        "domain": ["A", "B", "C", "\""],
-                        "range": ["#44ff44aa", "#ffff44aa", "#ff4444aa", "#888888aa"]
+                        "domain": ["A", "B", "C"],
+                        "range": ["#44ff44aa", "#ffff44aa", "#ff4444aa"]
                     }
                 },
                 "stroke": {
                     "field": "MaxClass", 
                     "type": "nominal", 
-                    "legend": {"title": "Max Class"},
+                    "legend": {"title": "Best quality class produced"},
                     "scale": {
-                        "domain": ["A", "B", "C", "\""],
-                        "range": ["#44aa44", "#aaaa44", "#aa4444", "#888888"]
+                        "domain": ["A", "B", "C"],
+                        "range": ["#44aa44", "#aaaa44", "#aa4444"]
                     }
                 },
                 "tooltip": [

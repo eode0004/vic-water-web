@@ -65,8 +65,19 @@
       <h3 class="section-title">Water, and How We're Using It</h3>
 
       <div class="charts-grid">
-          <div id="recyclemap" class="chart chart--standalone" role="img" aria-label="Water recycling map"></div>
+        <div id="recyclemap" class="chart chart--standalone" role="img" aria-label="Water recycling map"></div>
+      </div>
+
+      <div class="side-by-side side-by-side--chart-right">
+        <div class="side-by-side__copy">
+          <h2>Water Recycling</h2>
+          <p>This map shows water recycling across Victoria, highlighting areas where treated wastewater is reused for irrigation, industrial processes, or groundwater recharge. (AI-generated placeholder)</p>
+          <small>Placeholder.</small>
         </div>
+        <div class="side-by-side__chart">
+          <div id="recycleburst" class="chart chart--standalone" role="img" aria-label="Water recycling burst chart"></div>
+        </div>
+      </div>
 
       <div class="side-by-side side-by-side--chart-right">
 
@@ -103,9 +114,20 @@
   </footer>
 
   <script>
-    const ids = ["waterwaysmap","waterwaysdatamap","waterstoragelevels","waterstoragehistory", "waterent", "wateravail", "wateruseentitle", "usebysector", "recyclemap"];
+    const ids = [ 
+      "waterwaysmap",
+      "waterwaysdatamap",
+      "waterstoragelevels",
+      "waterstoragehistory", 
+      "waterent", 
+      "wateravail", 
+      "wateruseentitle", 
+      "usebysector", 
+      "recyclemap",
+      "recycleburst"
+    ];
     ids.forEach(id => {
-      vegaEmbed('#' + id, "graphs/" + id + ".vegajson").then(function(result) {
+      vegaEmbed('#' + id, "graphs/" + id + ".vegajson", { actions: false }).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
      }).catch(console.error)});
   </script>

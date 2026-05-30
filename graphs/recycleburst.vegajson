@@ -1,0 +1,163 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "title": "Proportion of Plants Producing Water by Class",
+    "background": "#00000000",
+    "config": {
+        "title": {"color": "#e6f6ff", "fontSize": 15},
+        "legend": {"labelColor": "#e6f6ff", "titleColor": "#e6f6ff"}
+    },
+    "data": {
+        "url": "graphs/data/rw_classes.csv",
+        "format": {"type": "csv"}
+    },
+    "transform": [
+        {
+            "calculate": "datum.Attribute === 'Count' ? datum.CLASS : 'Remaining'",
+            "as": "AttributeC"
+        },
+        {
+            "calculate": "datum.Value / 1000",
+            "as": "ValueGL"
+        },
+        {
+            "calculate": "datum.Attribute === 'Count' ? 'Producing' : 'Not producing'",
+            "as": "Attribute"
+        }
+
+    ],
+    "layer": [
+        {
+            "name": "A_ring",
+            "mark": {
+                "type": "arc",
+                "innerRadius": 50,
+                "outerRadius": 100
+            },
+            "transform": [
+                {
+                    "filter": "datum.CLASS === 'A'"
+                }
+            ],
+            "encoding": {
+                "theta": {
+                    "field": "Value",
+                    "type": "quantitative",
+                    "title": "Proportion of Plants"
+                },
+                "color": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44aa", "#ffff44aa", "#ff4444aa", "#88888844"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "stroke": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44", "#ffff44", "#ff4444", "#888888"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "tooltip": [
+                    {"field": "CLASS", "type": "nominal", "title": "Water quality class: "},
+                    {"field": "Attribute", "type": "nominal", "title": "Producing or not producing?: "},
+                    {"field": "Value", "type": "quantitative", "title": "Number of plants: "}
+                ]
+            }
+        },
+        {
+            "name": "B_ring",
+            "mark": {
+                "type": "arc",
+                "innerRadius": 100,
+                "outerRadius": 150,
+                "tooltip": true
+            },
+            "transform": [
+                {
+                    "filter": "datum.CLASS === 'B'"
+                }
+            ],
+            "encoding": {
+                "theta": {
+                    "field": "Value",
+                    "type": "quantitative",
+                    "title": "Proportion of Plants"
+                },
+                "color": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44aa", "#ffff44aa", "#ff4444aa", "#88888844"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "stroke": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44", "#ffff44", "#ff4444", "#888888"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "tooltip": [
+                    {"field": "CLASS", "type": "nominal", "title": "Water quality class: "},
+                    {"field": "Attribute", "type": "nominal", "title": "Producing or not producing?: "},
+                    {"field": "Value", "type": "quantitative", "title": "Number of plants: "}
+                ]
+            }
+        },
+        {
+            "name": "C_ring",
+            "mark": {
+                "type": "arc",
+                "innerRadius": 150,
+                "outerRadius": 200,
+                "tooltip": true
+            },
+            "transform": [
+                {
+                    "filter": "datum.CLASS === 'C'"
+                }
+            ],
+            "encoding": {
+                "theta": {
+                    "field": "Value",
+                    "type": "quantitative",
+                    "title": "Proportion of Plants"
+                },
+                "color": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44aa", "#ffff44aa", "#ff4444aa", "#88888844"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "stroke": {
+                    "field": "AttributeC",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["A", "B", "C", "Remaining"],
+                        "range": ["#44aa44", "#ffff44", "#ff4444", "#888888"]
+                    },
+                    "title": "Water quality classes"
+                },
+                "tooltip": [
+                    {"field": "CLASS", "type": "nominal", "title": "Water quality class: "},
+                    {"field": "Attribute", "type": "nominal", "title": "Producing or not producing?: "},
+                    {"field": "Value", "type": "quantitative", "title": "Number of plants: "}
+                ]
+            }
+        }
+    ]
+}

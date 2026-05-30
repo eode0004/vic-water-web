@@ -158,7 +158,7 @@
                     "scale": {
                         "range": [0.5, 1.0]
                     },
-                    "title": "Turbidity (Nephelometric Turbidity Units)"
+                    "title": "Turbidity (NTU)"
                 },
 
                 "tooltip": [
