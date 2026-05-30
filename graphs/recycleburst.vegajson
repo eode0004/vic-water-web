@@ -33,7 +33,7 @@
             "mark": {
                 "type": "arc",
                 "innerRadius": 50,
-                "outerRadius": 100
+                "outerRadius": 99
             },
             "transform": [
                 {
@@ -75,8 +75,8 @@
             "name": "B_ring",
             "mark": {
                 "type": "arc",
-                "innerRadius": 100,
-                "outerRadius": 150,
+                "innerRadius": 101,
+                "outerRadius": 149,
                 "tooltip": true
             },
             "transform": [
@@ -119,8 +119,8 @@
             "name": "C_ring",
             "mark": {
                 "type": "arc",
-                "innerRadius": 150,
-                "outerRadius": 200,
+                "innerRadius": 151,
+                "outerRadius": 199,
                 "tooltip": true
             },
             "transform": [

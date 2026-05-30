@@ -4,7 +4,8 @@
     "height": "container",
     "title": "Water Availability vs. Entitlements",
     "config": {
-        "title": {"fontSize": 15}
+        "title": {"fontSize": 15},
+        "background": "#00000000"
     },
     "params": [
         {
@@ -59,7 +60,7 @@
             "title": "Water Source",
             "scale": {
                 "domain": ["Groundwater", "Surface water"],
-                "range": ["#ffff44", "#4444ff"]
+                "range": ["#aaaa44", "#4444ff"]
             }
         }
     }

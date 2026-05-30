@@ -43,20 +43,20 @@
             "field": "Heading",
             "type": "nominal",
             "legend": {"title": "Entitlement Type"},
-            "title": "Entitlement Type",
+            "title": "Water Source",
             "scale": {
                         "domain": ["Desalinated water (consumptive)", "Groundwater (consumptive)", "Surface water (consumptive)", "Surface water (environment)"],
-                        "range": ["#ff4444aa", "#ffff44aa", "#4444ffaa", "#8888ffaa"]
+                        "range": ["#ff4444aa", "#aaaa44aa", "#4444ffaa", "#8888ffaa"]
                     }
         },
         "stroke": {
             "field": "Heading",
             "type": "nominal",
             "legend": {"title": "Entitlement Type"},
-            "title": "Entitlement Type",
+            "title": "Water Source",
             "scale": {
                         "domain": ["Desalinated water (consumptive)", "Groundwater (consumptive)", "Surface water (consumptive)", "Surface water (environment)"],
-                        "range": ["#ff4444", "#ffff44", "#4444ff", "#8888ff"]
+                        "range": ["#ff4444", "#aaaa44", "#4444ff", "#8888ff"]
                     }
         }
     }
